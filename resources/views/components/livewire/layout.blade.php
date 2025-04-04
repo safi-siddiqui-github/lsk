@@ -18,7 +18,9 @@
     @endif
 </head>
 
-<body class="antialiased">
+<body
+    id="light-dak-mode"
+    class="antialiased text-sm text-black bg-white dark:bg-black dark:text-white relative {{session('darkMode') ? 'dark' : ''}}">
 
     {{$slot}}
 
