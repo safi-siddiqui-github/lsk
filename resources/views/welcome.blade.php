@@ -15,7 +15,7 @@
 
         <div class="flex flex-col  item-start">
             <h2 class="font-medium">React Apps</h2>
-            <a href="" class="">CRM App</a>
+            <a href="{{route('react.crm.home')}}" class="">CRM App</a>
         </div>
 
         <div class="flex flex-col  item-start">
