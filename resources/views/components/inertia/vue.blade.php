@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark'=> ($appearance ?? 'system') == 'dark']) >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark'=> ($appearance ?? 'system') == 'dark'])>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
     {{-- Inline script to detect system dark mode preference and apply it immediately --}}
     <script>
@@ -22,25 +20,17 @@
         })();
     </script>
 
-    <!-- Fonts -->
-    {{-- <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" /> --}}
+    {{-- Inline style to set the HTML background color based on our theme in app.css --}}
+    <title inertia>{{ config('app.name', 'Inertia-Vue-App') }}</title>
 
-    @vite('resources/css/app.css')
-
-
+    @vite(['resources/css/app.css'])
     @routes
-    @viteReactRefresh
-    @vite(['resources/js/react/app.tsx', "resources/js/react/{$page['component']}.tsx"])
+    @vite(['resources/js/vue/app.ts'])
     @inertiaHead
-
-
 </head>
 
-<body class="antialiased">
-
+<body class="font-sans antialiased">
     @inertia
-
 </body>
 
 </html>

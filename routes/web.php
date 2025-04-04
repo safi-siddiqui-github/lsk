@@ -11,6 +11,6 @@ Route::get('/', function () {
 Volt::route('/livewire/crm', 'crm.pages.home')->name('livewire.crm.home');
 
 Route::controller(CRMController::class)->group(function () {
-
     Route::get('/react/crm', 'home')->name('react.crm.home');
+    Route::get('/vue/crm', 'home')->name('vue.crm.home');
 });

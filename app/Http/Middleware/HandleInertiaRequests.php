@@ -16,7 +16,20 @@ class HandleInertiaRequests extends Middleware
      * @var string
      */
     protected $rootView = 'components/inertia/layout';
-    // laravel/lsk/resources/views/components/inertia/layout.blade.php
+
+    public function rootView(Request $request): string
+    {
+        // routeIs() checks for named routes
+        if ($request->routeIs('react.*')) {
+            return 'components.inertia.react'; // resources/views/components/inertia/react.blade.php
+        }
+
+        if ($request->routeIs('vue.*')) {
+            return 'components.inertia.vue'; // resources/views/components/inertia/vue.blade.php
+        }
+
+        return $this->rootView;
+    }
 
     /**
      * Determines the current asset version.
