@@ -11,6 +11,8 @@
     "jsxSingleQuote": true,
     "vueIndentScriptAndStyle": true,
     "htmlWhitespaceSensitivity": "css",
+    "tailwindPreserveWhitespace": true,
+    "tailwindPreserveDuplicates": false,
     "plugins": [
         "prettier-plugin-blade",
         "prettier-plugin-tailwindcss",
@@ -24,18 +26,11 @@
     "overrides": [
         {
             "files": [
-                "**/*.blade.php"
+                "*.blade.php"
             ],
             "options": {
-                "parser": "blade"
-            }
-        },
-        {
-            "files": [
-                "**/*.php"
-            ],
-            "options": {
-                "parser": "php"
+                "parser": "blade",
+                "tabWidth": 4
             }
         }
     ]
