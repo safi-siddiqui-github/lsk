@@ -9,7 +9,7 @@ class CRMController extends Controller
 {
     public function home()
     {
-        return Inertia::render('Crm/pages/Home');
+        return Inertia::render('crm/pages/Home');
     }
     public function dashboard()
     {

@@ -29,8 +29,9 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            // '@': resolve(__dirname, './resources/js'),
-            '@react': resolve(__dirname, './resources/js/react'),
+            '@': resolve(__dirname, './resources/js'),
+            // '@vue': resolve(__dirname, './resources/js/vue'),
+            // '@react': resolve(__dirname, './resources/js/react'),
             'ziggy-js': resolve(__dirname, 'vendor/tightenco/ziggy'),
         },
     },
