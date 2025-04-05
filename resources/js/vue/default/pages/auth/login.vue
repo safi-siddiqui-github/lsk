@@ -1,42 +1,52 @@
 <script setup lang="ts">
-import SocialLogin from '@/components/auth/SocialLogin.vue';
-import PrimaryButton from '@/components/button/PrimaryButton.vue';
-import PrimaryHeading from '@/components/heading/PrimaryHeading.vue';
-import PrimaryCheckbox from '@/components/input/PrimaryCheckbox.vue';
-import PrimaryInput from '@/components/input/PrimaryInput.vue';
-import PrimaryPassword from '@/components/input/PrimaryPassword.vue';
-import NormalLink from '@/components/link/NormalLink.vue';
-import EmphasizeText from '@/components/text/EmphasizeText.vue';
-import NormalText from '@/components/text/NormalText.vue';
-import AuthLayout from '@/layouts/AuthLayout.vue';
-import { Head, useForm } from '@inertiajs/vue3';
-import { LoaderCircle } from 'lucide-vue-next';
+    import { Head, useForm } from '@inertiajs/vue3';
+import AuthLayout from '../../layout/AuthLayout.vue';
 
-type LoginForm = {
-    email: string;
-    password: string;
-    remember: boolean;
-};
+    // import SocialLogin from '@/components/auth/SocialLogin.vue';
+    // import PrimaryButton from '@/components/button/PrimaryButton.vue';
+    // import PrimaryHeading from '@/components/heading/PrimaryHeading.vue';
+    // import PrimaryCheckbox from '@/components/input/PrimaryCheckbox.vue';
+    // import PrimaryInput from '@/components/input/PrimaryInput.vue';
+    // import PrimaryPassword from '@/components/input/PrimaryPassword.vue';
+    // import NormalLink from '@/components/link/NormalLink.vue';
+    // import EmphasizeText from '@/components/text/EmphasizeText.vue';
+    // import NormalText from '@/components/text/NormalText.vue';
+    // import AuthLayout from '@/layouts/AuthLayout.vue';
+    // import { Head, useForm } from '@inertiajs/vue3';
+    // import { LoaderCircle } from 'lucide-vue-next';
 
-const { reset, post, errors, clearErrors, processing, email, password, remember } = useForm<Required<LoginForm>>({
-    email: '',
-    password: '',
-    remember: true,
-});
+    type LoginForm = {
+        email: string;
+        password: string;
+        remember: boolean;
+    };
 
-const handleSubmit = () => {
-    console.log(email);
+    const {
+        reset,
+        post,
+        errors,
+        clearErrors,
+        processing,
+        email,
+        password,
+        remember,
+    } = useForm<Required<LoginForm>>({
+        email: '',
+        password: '',
+        remember: true,
+    });
 
-    try {
-        post(route('loginForm'), {
-            onError: () => console.log(errors)
-        });
-        
-    } catch (error) {
-        console.log(error);
-    }
+    const handleSubmit = () => {
+        console.log(email);
 
-};
+        try {
+            post(route('loginForm'), {
+                onError: () => console.log(errors),
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
 </script>
 
 <template>
@@ -48,6 +58,7 @@ const handleSubmit = () => {
         >
             <div class="flex flex-col gap-2">
                 <div class="flex flex-wrap items-center gap-1">
+                    
                     <PrimaryHeading>LRSK</PrimaryHeading>
                     <EmphasizeText>login</EmphasizeText>
                 </div>
@@ -60,13 +71,31 @@ const handleSubmit = () => {
 
             <SocialLogin />
 
-            <PrimaryInput id="email" labelName="Email" placeholder="safi@gmail.com" :error="errors?.email" />
+            <PrimaryInput
+                id="email"
+                labelName="Email"
+                placeholder="safi@gmail.com"
+                :error="errors?.email"
+            />
 
-            <PrimaryPassword id="password" labelName="Password" :forgot="true" :error="errors?.password" />
+            <PrimaryPassword
+                id="password"
+                labelName="Password"
+                :forgot="true"
+                :error="errors?.password"
+            />
 
-            <PrimaryCheckbox id="remember" labelName="Remember Me" defaultChecked="false" />
+            <PrimaryCheckbox
+                id="remember"
+                labelName="Remember Me"
+                defaultChecked="false"
+            />
 
-            <PrimaryButton btnType="submit" addClasses="w-full flex items-center justify-center gap-1" :disabled="processing">
+            <PrimaryButton
+                btnType="submit"
+                addClasses="w-full flex items-center justify-center gap-1"
+                :disabled="processing"
+            >
                 <LoaderCircle v-if="processing" class="h-4 w-4 animate-spin" />
                 Submit
             </PrimaryButton>

@@ -2,7 +2,7 @@
 import { UserModelType } from '@/react/types/models';
 import ToggleAppearance from '@/react/default/components/ToggleAppearance';
 import { usePage } from '@inertiajs/react';
-import { cn } from '@/react/lib/utils';
+import { cn } from '@/lib/utils';
 
 export default function Header() {
     const { auth } = usePage<{ auth: { user: UserModelType } }>().props;

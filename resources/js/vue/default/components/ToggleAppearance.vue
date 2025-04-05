@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { useAppearance } from '@/composables/useAppearance';
-import { cn } from '@/lib/utils';
-import { Moon, Sun } from 'lucide-vue-next';
+    import { cn } from '@/lib/utils';
+    import { useAppearance } from '@/vue/composables/useAppearance';
+    import { Moon, Sun } from 'lucide-vue-next';
 
-const { appearance, updateAppearance } = useAppearance();
+    const { appearance, updateAppearance } = useAppearance();
 
-const toggleAppearnece = () => {
-    if (appearance.value == 'dark') {
-        updateAppearance('light');
-    } else {
-        updateAppearance('dark');
-    }
-};
+    const toggleAppearnece = () => {
+        if (appearance.value == 'dark') {
+            updateAppearance('light');
+        } else {
+            updateAppearance('dark');
+        }
+    };
 </script>
 
 <template>
@@ -19,10 +19,13 @@ const toggleAppearnece = () => {
         type="button"
         @click="toggleAppearnece"
         :class="
-            cn('flex w-12 cursor-pointer items-center gap-1 rounded-full border border-black dark:border-white px-1 py-0.5', {
-                'justify-start': appearance == 'light',
-                'justify-end': appearance == 'dark',
-            })
+            cn(
+                'flex w-12 cursor-pointer items-center gap-1 rounded-full border border-black dark:border-white px-1 py-0.5',
+                {
+                    'justify-start': appearance == 'light',
+                    'justify-end': appearance == 'dark',
+                }
+            )
         "
     >
         <Moon

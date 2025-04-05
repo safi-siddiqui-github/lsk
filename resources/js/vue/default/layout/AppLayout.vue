@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import MainHeader from '@/components/header/MainHeader.vue';
+    import Header from '@/vue/default/components/Header.vue';
 </script>
 
 <template>
     <div class="text-sm dark:bg-black dark:text-white">
-        <MainHeader />
+        <Header />
         <slot />
     </div>
 </template>

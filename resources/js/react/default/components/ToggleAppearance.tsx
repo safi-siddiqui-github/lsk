@@ -1,7 +1,7 @@
 import { Moon, Sun } from 'lucide-react';
 import { useCallback } from 'react';
 import { useAppearance } from '@/react/hooks/use-appearance';
-import { cn } from '@/react/lib/utils';
+import { cn } from '@/lib/utils';
 
 export default function ToggleAppearance() {
     const { appearance, updateAppearance } = useAppearance();

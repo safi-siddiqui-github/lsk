@@ -1,14 +1,14 @@
+import { initializeTheme } from '@/react/hooks/use-appearance';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { initializeTheme } from '@/react/hooks/use-appearance';
 
 const appName = import.meta.env.VITE_APP_NAME || 'React-App';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./${name}.tsx`, import.meta.glob('./**/*.tsx')),
+    resolve: (name) =>
+        resolvePageComponent(`./${name}.tsx`, import.meta.glob('./**/*.tsx')),
     setup({ el, App, props }) {
         const root = createRoot(el);
 
