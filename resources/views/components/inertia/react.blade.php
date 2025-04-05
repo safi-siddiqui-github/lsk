@@ -30,7 +30,7 @@
 
 </head>
 
-<body class="antialiased">
+<body class="antialiased text-sm dark:bg-black dark:text-white">
 
     @inertia
 

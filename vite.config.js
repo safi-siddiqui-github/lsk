@@ -29,7 +29,8 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '@': resolve(__dirname, './resources/js'),
+            // '@': resolve(__dirname, './resources/js'),
+            '@react': resolve(__dirname, './resources/js/react'),
             'ziggy-js': resolve(__dirname, 'vendor/tightenco/ziggy'),
         },
     },
@@ -40,39 +41,3 @@ export default defineConfig({
     // },
 });
 
-
-/*
-import laravel from 'laravel-vite-plugin';
-import path from 'path';
-
-export default defineConfig({
-    plugins: [
-        laravel({
-            input: ['resources/js/app.ts'],
-            ssr: 'resources/js/ssr.ts',
-            refresh: true,
-        }),
-        vue({
-            template: {
-                transformAssetUrls: {
-                    base: null,
-                    includeAbsolute: false,
-                },
-            },
-        }),
-    ],
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, './resources/js'),
-            'ziggy-js': resolve(__dirname, 'vendor/tightenco/ziggy'),
-        },
-    },
-    css: {
-        postcss: {
-            plugins: [tailwindcss, autoprefixer],
-        },
-    },
-});
-
-
- */
